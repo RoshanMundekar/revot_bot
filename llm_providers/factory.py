@@ -7,7 +7,7 @@ from typing import Optional
 from .base import BaseLLMProvider
 from .openai_provider import OpenAIProvider
 from .groq_provider import GroqProvider
-from .watsonx_provider import WatsonXProvider
+# from .watsonx_provider import WatsonXProvider
 import logging
 
 logger = logging.getLogger(__name__)
@@ -70,22 +70,22 @@ class LLMProviderFactory:
                     temperature=config.get('temperature', 0.7)
                 )
                 
-            elif provider_type == LLMProviderFactory.WATSONX:
-                model = model or config.get('WATSONX_MODEL', 'ibm/granite-13b-chat-v2')
-                project_id = config.get('WATSONX_PROJECT_ID')
-                url = config.get('WATSONX_URL', 'https://us-south.ml.cloud.ibm.com')
+            # elif provider_type == LLMProviderFactory.WATSONX:
+            #     model = model or config.get('WATSONX_MODEL', 'ibm/granite-13b-chat-v2')
+            #     project_id = config.get('WATSONX_PROJECT_ID')
+            #     url = config.get('WATSONX_URL', 'https://us-south.ml.cloud.ibm.com')
                 
-                if not project_id:
-                    raise ValueError("WatsonX requires WATSONX_PROJECT_ID in configuration")
+            #     if not project_id:
+            #         raise ValueError("WatsonX requires WATSONX_PROJECT_ID in configuration")
                 
-                provider = WatsonXProvider(
-                    api_key=api_key,
-                    model=model,
-                    project_id=project_id,
-                    url=url,
-                    max_tokens=config.get('max_tokens', 500),
-                    temperature=config.get('temperature', 0.7)
-                )
+            #     provider = WatsonXProvider(
+            #         api_key=api_key,
+            #         model=model,
+            #         project_id=project_id,
+            #         url=url,
+            #         max_tokens=config.get('max_tokens', 500),
+            #         temperature=config.get('temperature', 0.7)
+            #     )
                 
             else:
                 raise ValueError(
@@ -116,5 +116,5 @@ class LLMProviderFactory:
         return [
             LLMProviderFactory.OPENAI,
             LLMProviderFactory.GROQ,
-            LLMProviderFactory.WATSONX
+            # LLMProviderFactory.WATSONX
         ]
