@@ -20,7 +20,7 @@
     const config = {
         apiEndpoint: window.antigravityConfig?.apiEndpoint || 'http://localhost:8000/api/chat',
         botName: window.antigravityConfig?.botName || 'Anti',
-        fullBotName: window.antigravityConfig?.fullBotName || 'Antigravity',
+        fullBotName: window.antigravityConfig?.fullBotName || 'AI Revoke Chatbot',
         primaryColor: window.antigravityConfig?.primaryColor || '#06d6a0',
         secondaryColor: window.antigravityConfig?.secondaryColor || '#118ab2',
         accentColor: window.antigravityConfig?.accentColor || '#ef476f',
